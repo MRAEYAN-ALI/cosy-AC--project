@@ -6,95 +6,28 @@
     <title>Car Selection - Premium Vehicles</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <style>
-      body {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        min-height: 100vh;
-        padding: 20px 0;
-      }
-      .container-fluid {
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        padding: 40px;
-      }
-      h1 {
-        text-align: center;
-        color: #333;
-        font-weight: bold;
-        margin-bottom: 30px;
-        font-size: 2.5rem;
-      }
-      .product-card {
-        background: #f8f9fa;
-        border-radius: 10px;
-        padding: 20px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border: 1px solid #dee2e6;
-      }
-      .product-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-      }
-      .form-select {
-        border-radius: 8px;
-        border: 2px solid #667eea;
-        padding: 10px;
-        font-size: 16px;
-        transition: border-color 0.3s ease;
-      }
-      .form-select:focus {
-        border-color: #764ba2;
-        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
-      }
-      #img_1, #img_2 {
-        border-radius: 10px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        object-fit: cover;
-      }
-      ul {
-        list-style: none;
-        padding: 0;
-        margin-top: 15px;
-      }
-      li {
-        padding: 8px 0;
-        border-bottom: 1px solid #dee2e6;
-        color: #555;
-        font-weight: 500;
-      }
-      li:last-child {
-        border-bottom: none;
-      }
-      button {
-        height: 50px;
-        width: 50px;
-        font-size: 30px;
-        border-radius: 50%;
-        background: #667eea;
-        border: none;
-        color: white;
-        transition: background 0.3s ease;
-      }
-      button:hover {
-        background: #764ba2;
-      }
-      .dropdown-row {
-        display: flex;
-        gap: 10px;
-        align-items: flex-end;
-      }
-      .dropdown-row .form-group {
-        flex: 1;
-        margin-bottom: 0;
-      }
-      .dropdown-row label {
-        margin-bottom: 5px;
-        display: block;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="compare.css">
 </head>
 <body>
+  <!-- nav start -->
+        <div class="nav-main">
+            <div class="nav-logo"><a href="index.html"><img
+                        src="logo22.2.png"></a></div>
+            <div class="nav-toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="product.html">Products</a>
+                <a href="categories.html">Categories</a>
+                <a href="about.html">About</a>
+                <a href="compare.html.html">Compare</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+        <!-- nav end -->
   <div class="container-fluid">
     <h1>❄️ Select Your Favorite AC</h1>
     <div class="row">
@@ -105,9 +38,11 @@
               <label for="pro_1" class="form-label fw-bold">AC Brand</label>
               <select name="product1" id="pro_1" class="form-select" onchange="product('1')">
                 <option value="">Select Brand</option>
-                <option value="Daikin">Daikin</option>
-                <option value="LG">LG</option>
-                <option value="Samsung">Samsung</option>
+                <option value="Daikin">Pel</option>
+                <option value="LG">Dawlance</option>
+                <option value="Samsung">TCL</option>
+                <option value="Samsung">Kenwood</option>
+                <option value="Samsung">Orient</option>
               </select>
             </div>
             <div class="form-group">
@@ -131,9 +66,11 @@
               <label for="pro_2" class="form-label fw-bold">AC Brand</label>
               <select name="product2" id="pro_2" class="form-select" onchange="product('2')">
                 <option value="">Select Brand</option>
-                <option value="Daikin">Daikin</option>
-                <option value="LG">LG</option>
-                <option value="Samsung">Samsung</option>
+                <option value="Daikin">Pel</option>
+                <option value="LG">Dawlance</option>
+                <option value="Samsung">TCL</option>
+                <option value="Samsung">Kenwood</option>
+                <option value="Samsung">Orient</option>
               </select>
             </div>
             <div class="form-group">
@@ -152,69 +89,190 @@
       </div>
     </div>
   </div>
+    <div id="comparison" class="mt-4">
+      <h2 style="text-align:center;color:#fff;">Comparison</h2>
+      <div id="comparisonTable" style="background:#fff;padding:20px;border-radius:10px;margin-top:10px;"></div>
+    </div>
+
     <script>
     const productData = {
-      Daikin: {
-        "1.5Ton": {
-          img: "Daikin1.5.jpg",
-          details: "<li><strong>Model:</strong> Inverter 1.5 Ton</li><li><strong>Cooling Capacity:</strong> 5000 BTU</li><li><strong>Price:</strong> $450</li><li><strong>Energy Rating:</strong> 5 Star</li>"
-        },
-        "2Ton": {
-          img: "Daikin2.jpg",
-          details: "<li><strong>Model:</strong> Inverter 2 Ton</li><li><strong>Cooling Capacity:</strong> 6500 BTU</li><li><strong>Price:</strong> $550</li><li><strong>Energy Rating:</strong> 5 Star</li>"
-        },
-        "2.5Ton": {
-          img: "Daikin2.5.jpg",
-          details: "<li><strong>Model:</strong> Inverter 2.5 Ton</li><li><strong>Cooling Capacity:</strong> 8000 BTU</li><li><strong>Price:</strong> $650</li><li><strong>Energy Rating:</strong> 5 Star</li>"
-        }
+      "Pel": {
+        "InverterOn AERO Extend": { img: "card14.png", price: "489$", details: "<li><strong>Model:</strong> InverterOn AERO Extend</li><li><strong>Type:</strong> Split Inverter</li><li><strong>Cooling Capacity:</strong> 5000 BTU</li><li><strong>Energy Rating:</strong> 5 Star</li><li><strong>Warranty:</strong> 2 Years</li><li><strong>Features:</strong> Inverter Compressor, Turbo Cool, Auto Clean</li>" },
+        "InverterOn Fit Cool T3": { img: "card11.png", price: "499$", details: "<li><strong>Model:</strong> InverterOn Fit Cool T3</li><li><strong>Type:</strong> Split Inverter</li><li><strong>Cooling Capacity:</strong> 5200 BTU</li><li><strong>Energy Rating:</strong> 5 Star</li><li><strong>Warranty:</strong> 2 Years</li><li><strong>Features:</strong> Low Noise, Sleep Mode, Anti-Bacterial Filter</li>" },
+        "InverterOn Fit Graphite": { img: "card15.png", price: "559$", details: "<li><strong>Model:</strong> InverterOn Fit Graphite</li><li><strong>Type:</strong> Split Inverter</li><li><strong>Cooling Capacity:</strong> 6000 BTU</li><li><strong>Energy Rating:</strong> 5 Star</li><li><strong>Warranty:</strong> 2 Years</li><li><strong>Features:</strong> Graphite Finish, High Efficiency, Auto Restart</li>" },
+        "InverterOn Jumbo X T3": { img: "card10.png", price: "509$", details: "<li><strong>Model:</strong> InverterOn Jumbo X T3</li><li><strong>Type:</strong> Split Inverter</li><li><strong>Cooling Capacity:</strong> 6500 BTU</li><li><strong>Energy Rating:</strong> 4 Star</li><li><strong>Warranty:</strong> 2 Years</li><li><strong>Features:</strong> Fast Cooling, Dust Filter</li>" },
+        "InverterOn Turbo DC": { img: "card12.png", price: "599$", details: "<li><strong>Model:</strong> InverterOn Turbo DC</li><li><strong>Type:</strong> Split Inverter (DC)</li><li><strong>Cooling Capacity:</strong> 7000 BTU</li><li><strong>Energy Rating:</strong> 5 Star</li><li><strong>Warranty:</strong> 3 Years</li><li><strong>Features:</strong> DC Inverter, Energy Saver, Anti-Corrosion Coating</li>" },
+        "Majestic Glory AC": { img: "card13.png", price: "479$", details: "<li><strong>Model:</strong> Majestic Glory AC</li><li><strong>Type:</strong> Split</li><li><strong>Cooling Capacity:</strong> 4800 BTU</li><li><strong>Energy Rating:</strong> 4 Star</li><li><strong>Warranty:</strong> 2 Years</li><li><strong>Features:</strong> Eco Mode, Remote Control</li>" }
       },
-      LG: {
-        "1.5Ton": {
-          img: "LG1.5.jpg",
-          details: "<li><strong>Model:</strong> Smart Inverter 1.5 Ton</li><li><strong>Cooling Capacity:</strong> 5000 BTU</li><li><strong>Price:</strong> $400</li><li><strong>Energy Rating:</strong> 5 Star</li>"
-        },
-        "2Ton": {
-          img: "LG2.jpg",
-          details: "<li><strong>Model:</strong> Smart Inverter 2 Ton</li><li><strong>Cooling Capacity:</strong> 6500 BTU</li><li><strong>Price:</strong> $500</li><li><strong>Energy Rating:</strong> 5 Star</li>"
-        },
-        "2.5Ton": {
-          img: "LG2.5.jpg",
-          details: "<li><strong>Model:</strong> Smart Inverter 2.5 Ton</li><li><strong>Cooling Capacity:</strong> 8000 BTU</li><li><strong>Price:</strong> $600</li><li><strong>Energy Rating:</strong> 5 Star</li>"
-        }
+      "Dawlance": {
+        "Mega Flex 1 Ton Inverter": { img: "card3.webp", price: "619$", details: "<li><strong>Model:</strong> Mega Flex 1 Ton Inverter</li><li><strong>Type:</strong> Split Inverter</li><li><strong>Cooling Capacity:</strong> 4800 BTU</li><li><strong>Energy Rating:</strong> 5 Star</li><li><strong>Warranty:</strong> 3 Years</li><li><strong>Features:</strong> High Efficiency Compressor, Low Vibration</li>" },
+        "Hyper T3 1.5 Ton White": { img: "card1.webp", price: "599$", details: "<li><strong>Model:</strong> Hyper T3 1.5 Ton White</li><li><strong>Type:</strong> Split</li><li><strong>Cooling Capacity:</strong> 5200 BTU</li><li><strong>Energy Rating:</strong> 4 Star</li><li><strong>Warranty:</strong> 2 Years</li><li><strong>Features:</strong> Turbo Mode, Auto Clean</li>" },
+        "Chrome T3 1.5 Ton White": { img: "card4.webp", price: "519$", details: "<li><strong>Model:</strong> Chrome T3 1.5 Ton White</li><li><strong>Type:</strong> Split</li><li><strong>Cooling Capacity:</strong> 5100 BTU</li><li><strong>Energy Rating:</strong> 4 Star</li><li><strong>Warranty:</strong> 2 Years</li><li><strong>Features:</strong> Stylish Chrome Finish, Sleep Mode</li>" },
+        "PurSense 1.5 Ton Black": { img: "card2.webp", price: "569$", details: "<li><strong>Model:</strong> PurSense 1.5 Ton Black</li><li><strong>Type:</strong> Split Inverter</li><li><strong>Cooling Capacity:</strong> 5300 BTU</li><li><strong>Energy Rating:</strong> 5 Star</li><li><strong>Warranty:</strong> 3 Years</li><li><strong>Features:</strong> Air Purification, Smart Sensors</li>" }
       },
-      Samsung: {
-        "1.5Ton": {
-          img: "Samsung1.5.jpg",
-          details: "<li><strong>Model:</strong> WindFree 1.5 Ton</li><li><strong>Cooling Capacity:</strong> 5000 BTU</li><li><strong>Price:</strong> $420</li><li><strong>Energy Rating:</strong> 5 Star</li>"
-        },
-        "2Ton": {
-          img: "Samsung2.jpg",
-          details: "<li><strong>Model:</strong> WindFree 2 Ton</li><li><strong>Cooling Capacity:</strong> 6500 BTU</li><li><strong>Price:</strong> $520</li><li><strong>Energy Rating:</strong> 5 Star</li>"
-        },
-        "2.5Ton": {
-          img: "Samsung2.5.jpg",
-          details: "<li><strong>Model:</strong> WindFree 2.5 Ton</li><li><strong>Cooling Capacity:</strong> 8000 BTU</li><li><strong>Price:</strong> $620</li><li><strong>Energy Rating:</strong> 5 Star</li>"
-        }
+      "TCL": {
+        "T3-PRO": { img: "card21.png", price: "599$", details: "<li><strong>Model:</strong> T3-PRO</li><li><strong>Type:</strong> Split Inverter</li><li><strong>Cooling Capacity:</strong> 6000 BTU</li><li><strong>Energy Rating:</strong> 5 Star</li><li><strong>Warranty:</strong> 3 Years</li><li><strong>Features:</strong> Fast Cooling, Durable Build</li>" },
+        "Extreme Series": { img: "card22.png", price: "559$", details: "<li><strong>Model:</strong> Extreme Series</li><li><strong>Type:</strong> Split</li><li><strong>Cooling Capacity:</strong> 5700 BTU</li><li><strong>Energy Rating:</strong> 4 Star</li><li><strong>Warranty:</strong> 2 Years</li><li><strong>Features:</strong> Extreme Cooling, Anti-Dust Filter</li>" },
+        "T5-SMART": { img: "card20.png", price: "625$", details: "<li><strong>Model:</strong> T5-SMART</li><li><strong>Type:</strong> Split Inverter</li><li><strong>Cooling Capacity:</strong> 6500 BTU</li><li><strong>Energy Rating:</strong> 5 Star</li><li><strong>Warranty:</strong> 3 Years</li><li><strong>Features:</strong> Smart Connectivity, Energy Saver</li>" }
+      },
+      "Kenwood": {
+        "E-Aura Pro": { img: "card7.webp", price: "499$", details: "<li><strong>Model:</strong> E-Aura Pro</li><li><strong>Type:</strong> Split</li><li><strong>Cooling Capacity:</strong> 5200 BTU</li><li><strong>Energy Rating:</strong> 4 Star</li><li><strong>Warranty:</strong> 2 Years</li><li><strong>Features:</strong> Sleek Design, Quiet Operation</li>" },
+        "E-Smart Platinum": { img: "card9.webp", price: "649$", details: "<li><strong>Model:</strong> E-Smart Platinum</li><li><strong>Type:</strong> Split Inverter</li><li><strong>Cooling Capacity:</strong> 6800 BTU</li><li><strong>Energy Rating:</strong> 5 Star</li><li><strong>Warranty:</strong> 3 Years</li><li><strong>Features:</strong> Platinum Finish, Air Purifier</li>" },
+        "E-Sleek Pro": { img: "card8.webp", price: "515$", details: "<li><strong>Model:</strong> E-Sleek Pro</li><li><strong>Type:</strong> Split</li><li><strong>Cooling Capacity:</strong> 5400 BTU</li><li><strong>Energy Rating:</strong> 4 Star</li><li><strong>Warranty:</strong> 2 Years</li><li><strong>Features:</strong> Compact, Fast Cooling</li>" },
+        "E-Comfort Pro": { img: "card6.webp", price: "549$", details: "<li><strong>Model:</strong> E-Comfort Pro</li><li><strong>Type:</strong> Split Inverter</li><li><strong>Cooling Capacity:</strong> 5600 BTU</li><li><strong>Energy Rating:</strong> 5 Star</li><li><strong>Warranty:</strong> 3 Years</li><li><strong>Features:</strong> Comfort Mode, Energy Saver</li>" },
+        "E-Smart Pura": { img: "card5.webp", price: "699$", details: "<li><strong>Model:</strong> E-Smart Pura</li><li><strong>Type:</strong> Split Inverter</li><li><strong>Cooling Capacity:</strong> 7000 BTU</li><li><strong>Energy Rating:</strong> 5 Star</li><li><strong>Warranty:</strong> 3 Years</li><li><strong>Features:</strong> Air Purification, Smart Controls</li>" }
+      },
+      "Orient": {
+        "Megatron Infinity eComfort DC": { img: "card17.webp", price: "539$", details: "<li><strong>Model:</strong> Megatron Infinity eComfort DC</li><li><strong>Type:</strong> Split Inverter (DC)</li><li><strong>Cooling Capacity:</strong> 5400 BTU</li><li><strong>Energy Rating:</strong> 5 Star</li><li><strong>Warranty:</strong> 3 Years</li><li><strong>Features:</strong> DC Inverter, Silent Operation</li>" },
+        "Ultron KING eComfort Silk": { img: "card19.webp", price: "589$", details: "<li><strong>Model:</strong> Ultron KING eComfort Silk</li><li><strong>Type:</strong> Split Inverter</li><li><strong>Cooling Capacity:</strong> 6000 BTU</li><li><strong>Energy Rating:</strong> 5 Star</li><li><strong>Warranty:</strong> 3 Years</li><li><strong>Features:</strong> Luxury Finish, Air Care Filters</li>" },
+        "Ultron DIVINE eComfort DC": { img: "card16.webp", price: "459$", details: "<li><strong>Model:</strong> Ultron DIVINE eComfort DC</li><li><strong>Type:</strong> Split Inverter (DC)</li><li><strong>Cooling Capacity:</strong> 4600 BTU</li><li><strong>Energy Rating:</strong> 4 Star</li><li><strong>Warranty:</strong> 2 Years</li><li><strong>Features:</strong> Efficient Motor, Eco Mode</li>" },
+        "Ultron LUNAR eComfort Golden": { img: "card18.webp", price: "499$", details: "<li><strong>Model:</strong> Ultron LUNAR eComfort Golden</li><li><strong>Type:</strong> Split</li><li><strong>Cooling Capacity:</strong> 5000 BTU</li><li><strong>Energy Rating:</strong> 4 Star</li><li><strong>Warranty:</strong> 2 Years</li><li><strong>Features:</strong> Golden Finish, Anti-Dust Technology</li>" }
       }
     };
 
-    function product(productNumber) {
-      const selectId = "pro_" + productNumber;
-      const modelId = "model_" + productNumber;
-      const imgId = "img_" + productNumber;
-      const detailsId = "Details_" + productNumber;
-      
-      const brand = document.getElementById(selectId).value;
-      const model = document.getElementById(modelId).value;
-      
-      if (brand === "" || model === "") {
-        document.getElementById(imgId).src = "";
-        document.getElementById(detailsId).innerHTML = "";
-      } else if (productData[brand] && productData[brand][model]) {
-        document.getElementById(imgId).src = productData[brand][model].img;
-        document.getElementById(detailsId).innerHTML = productData[brand][model].details;
-      }
+    function populateBrands(){
+      const brands = Object.keys(productData);
+      ['1','2'].forEach(num => {
+        const select = document.getElementById('pro_'+num);
+        // clear existing options
+        select.innerHTML = '<option value="">Select Brand</option>';
+        brands.forEach(b => {
+          const opt = document.createElement('option');
+          opt.value = b;
+          opt.textContent = b;
+          select.appendChild(opt);
+        });
+      });
     }
+
+    function populateModels(brand, productNumber){
+      const modelSelect = document.getElementById('model_'+productNumber);
+      modelSelect.innerHTML = '<option value="">Select Model</option>';
+      if(!brand || !productData[brand]) return;
+      Object.keys(productData[brand]).forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = m;
+        opt.textContent = m;
+        modelSelect.appendChild(opt);
+      });
+    }
+
+    function updateProduct(productNumber){
+      const brand = document.getElementById('pro_'+productNumber).value;
+      const model = document.getElementById('model_'+productNumber).value;
+      const imgEl = document.getElementById('img_'+productNumber);
+      const detailsEl = document.getElementById('Details_'+productNumber);
+      if(!brand || !model){
+        imgEl.src = '';
+        detailsEl.innerHTML = '';
+        updateComparison();
+        return;
+      }
+      const data = productData[brand][model];
+      if(data){
+        imgEl.src = data.img;
+        detailsEl.innerHTML = data.details;
+      }
+      updateComparison();
+    }
+
+    function updateComparison(){
+      const brand1 = document.getElementById('pro_1').value;
+      const model1 = document.getElementById('model_1').value;
+      const brand2 = document.getElementById('pro_2').value;
+      const model2 = document.getElementById('model_2').value;
+      const container = document.getElementById('comparisonTable');
+      if(!brand1 || !model1 || !brand2 || !model2){
+        container.innerHTML = '<p style="color:#333">Select two brands and models to compare.</p>';
+        return;
+      }
+      const a = productData[brand1][model1];
+      const b = productData[brand2][model2];
+      // Render a compact comparison table under the heading (no large side-by-side cards)
+      container.innerHTML = `
+        <table class="table" style="margin-bottom:0;">
+          <thead>
+            <tr>
+              <th style="width:30%">Attribute</th>
+              <th style="width:35%;text-align:center">${brand1} — ${model1}</th>
+              <th style="width:35%;text-align:center">${brand2} — ${model2}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Price</strong></td>
+              <td style="text-align:center">${a.price}</td>
+              <td style="text-align:center">${b.price}</td>
+            </tr>
+            <tr>
+              <td><strong>Details</strong></td>
+              <td><ul style="margin:0;padding-left:18px">${a.details}</ul></td>
+              <td><ul style="margin:0;padding-left:18px">${b.details}</ul></td>
+            </tr>
+            <tr>
+              <td><strong>Image</strong></td>
+              <td style="text-align:center"><img src="${a.img}" alt="${model1}" style="max-width:140px;border-radius:6px"></td>
+              <td style="text-align:center"><img src="${b.img}" alt="${model2}" style="max-width:140px;border-radius:6px"></td>
+            </tr>
+          </tbody>
+        </table>
+      `;
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+      populateBrands();
+      // wire change events
+      ['1','2'].forEach(num => {
+        document.getElementById('pro_'+num).addEventListener('change', function(e){
+          populateModels(e.target.value, num);
+          // clear image/details
+          document.getElementById('img_'+num).src = '';
+          document.getElementById('Details_'+num).innerHTML = '';
+        });
+        document.getElementById('model_'+num).addEventListener('change', function(){
+          updateProduct(num);
+        });
+      });
+    });
+    </script>
+    <!-- footer start -->
+                <div class="footer-top">
+                    <div class="footer-left">
+                        <div class="footer-num">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <p>+92-4556-3434</p>
+                        </div>
+                        <div class="footer-logo">
+                            <a href="index.html"><img src="logo11.1.png"
+                                    alt></a>
+                        </div>
+                    </div>
+                    <div class="footer-right">
+                        <h3>Quick Links</h3>
+                        <div class="footer-links">
+                            <a href="index.html">Home</a>
+                            <a href="product.html">Products</a>
+                            <a href="categories.html">Categories</a>
+                            <a href="about.html">About</a>
+                            <a href>Compare</a>
+                            <a href="contact.html">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>Copyright@2025, COSY AIRCONDITIONERS , All Right
+                        Reserved</p>
+                </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+        const toggle = document.getElementById('nav-toggle');
+        const links = document.querySelector('.nav-links');
+        if(toggle && links){
+          toggle.addEventListener('click', function(){
+            links.classList.toggle('active');
+          });
+        }
+      });
     </script>
 </body>
 </html>
