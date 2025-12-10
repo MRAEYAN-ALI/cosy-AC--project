@@ -294,6 +294,46 @@ body{
                 align-items: center;
             }
         }
+   
+        .vis-mis{
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            padding: 2% 5% 7% 5%;
+        }
+
+        .vision-left{
+            padding: 0 7%;
+        }
+
+        .vision-left i{
+            padding: 4%;
+            margin-bottom: 2rem;
+            color: #022445;
+            font-size: 4rem;
+        }
+
+        .vision-left p{
+            color: #022445;
+            font-size: 1.2rem;
+        }
+
+        .mission-right i{
+             padding: 4%;
+             margin-bottom: 2rem;
+            color: #022445;
+            font-size: 4rem;
+        }
+
+        .mission-right p{
+            color: #022445;
+            font-size: 1.2rem;
+        }
+
+        .mission-right{
+            padding: 0 7%;
+        }
+
 
 
 
@@ -324,7 +364,7 @@ body{
 
 .footer-left i{
 font-size: 2rem;
-margin-left: 3rem;
+margin-left: 1rem;
 }
 
 .footer-left p{

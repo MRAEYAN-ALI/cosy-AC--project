@@ -196,8 +196,8 @@ body{
       width: 100%;
       max-width: 550px;
       border-radius: 15px;
-      box-shadow: 0 10px 40px rgba(2, 36, 69, 0.15);
-      border: 2px solid #e0f0ff;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    
     }
 
     form label{
@@ -233,7 +233,6 @@ body{
             border: 2px solid #d0e8ff;
             border-radius: 8px;
             font-size: 15px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: white;
             transition: all 0.3s ease;
             color: #022445;
@@ -275,7 +274,6 @@ body{
     form textarea {
       resize: vertical;
       min-height: 120px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .form-btn{
