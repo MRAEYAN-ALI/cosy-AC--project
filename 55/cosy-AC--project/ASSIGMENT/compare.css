@@ -1,0 +1,87 @@
+body {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        margin: 0;
+        padding-top: 0;
+        padding-bottom: 20px;
+      }
+      .container-fluid {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        padding: 40px;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 30px;
+        font-size: 2.5rem;
+      }
+      .product-card {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #dee2e6;
+      }
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      }
+      .form-select {
+        border-radius: 8px;
+        border: 2px solid #667eea;
+        padding: 10px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+      }
+      .form-select:focus {
+        border-color: #764ba2;
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+      }
+      #img_1, #img_2 {
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        object-fit: cover;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 15px;
+      }
+      li {
+        padding: 8px 0;
+        border-bottom: 1px solid #dee2e6;
+        color: #555;
+        font-weight: 500;
+      }
+      li:last-child {
+        border-bottom: none;
+      }
+      button {
+        height: 50px;
+        width: 50px;
+        font-size: 30px;
+        border-radius: 50%;
+        background: #667eea;
+        border: none;
+        color: white;
+        transition: background 0.3s ease;
+      }
+      button:hover {
+        background: #764ba2;
+      }
+      .dropdown-row {
+        display: flex;
+        gap: 10px;
+        align-items: flex-end;
+      }
+      .dropdown-row .form-group {
+        flex: 1;
+        margin-bottom: 0;
+      }
+      .dropdown-row label {
+        margin-bottom: 5px;
+        display: block;
+      }
